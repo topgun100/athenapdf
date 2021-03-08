@@ -4,7 +4,7 @@ MAINTAINER Arachnys <techteam@arachnys.com>
 RUN echo 'deb http://httpredir.debian.org/debian/ stable main contrib non-free' >> /etc/apt/sources.list
 
 RUN apt-get -yq update && \
-    apt-get -yq install \
+    apt-get -yq install --allow-unauthenticated \
         wget \
         xvfb \
         libasound2 \
