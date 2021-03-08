@@ -1,4 +1,4 @@
-FROM arachnysdocker/athenapdf
+FROM topgun100/athenapdf:2.9.2-buster
 MAINTAINER Arachnys <techteam@arachnys.com>
 
 ENV GIN_MODE release

@@ -21,7 +21,6 @@ Athena is comprised of an [Electron][electron] command line interface (CLI) tool
 
 _When [aggressive mode][aggressive] is enabled, only the essential contents of a page are kept in the generated PDF document. It is a clutter-free version of the web page, perfect for reading._
 
-
 ## Background
 
 Athena is an open source project.
