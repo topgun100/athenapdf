@@ -1,4 +1,4 @@
-FROM debian:8.3
+FROM debian:10
 MAINTAINER Arachnys <techteam@arachnys.com>
 
 RUN echo 'deb http://httpredir.debian.org/debian/ stable main contrib non-free' >> /etc/apt/sources.list
@@ -12,7 +12,8 @@ RUN apt-get -yq update && \
         libnotify4 \
         libnss3 \
         libxss1 \
-        libXtst6 \
+        libxtst6 \
+        libasound2 \
         culmus \
         fonts-beng \
         fonts-dejavu \
@@ -28,8 +29,8 @@ RUN apt-get -yq update && \
         fonts-sil-padauk \
         fonts-telu \
         fonts-thai-tlwg \
-        ttf-liberation \
-        ttf-unfonts-core \
+        fonts-liberation \
+        fonts-unfonts-core \
         ttf-wqy-zenhei \
     && apt-get -yq autoremove \
     && apt-get -yq clean \
