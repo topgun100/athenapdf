@@ -9,12 +9,12 @@ RUN \
   && rm dumb-init_*.deb \
   && mkdir -p /athenapdf-service/tmp/
 
-COPY build/weaver /athenapdf-service/
+#COPY build/weaver /athenapdf-service/
 WORKDIR /athenapdf-service/
 
 ENV PATH /athenapdf-service/:$PATH
 
-COPY conf/ /athenapdf-service/conf/
+COPY athenapdf-service /athenapdf-service
 
 EXPOSE 8080
 

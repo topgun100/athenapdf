@@ -29,15 +29,23 @@ RUN apt-get -yq update && \
         fonts-sil-padauk \
         fonts-telu \
         fonts-thai-tlwg \
-        fonts-liberation \
         fonts-unfonts-core \
         ttf-wqy-zenhei \
+        multiarch-support \
     && apt-get -yq autoremove \
     && apt-get -yq clean \
     && rm -rf /var/lib/apt/lists/* \
     && truncate -s 0 /var/log/*log
 
+COPY fonts.conf /etc/fonts/conf.d/100-athena.conf
+
 COPY build/athenapdf-linux-x64/ /athenapdf/
+RUN wget http://ftp.de.debian.org/debian/pool/main/libp/libpng/libpng12-0_1.2.50-2+deb8u3_amd64.deb && \
+    wget http://ftp.de.debian.org/debian/pool/main/f/fonts-liberation/fonts-liberation_1.07.4-1_all.deb && \
+    wget http://ftp.de.debian.org/debian/pool/main/f/freetype/libfreetype6_2.5.2-3+deb8u2_amd64.deb && \
+    wget http://ftp.de.debian.org/debian/pool/main/c/cairo/libcairo2_1.14.0-2.1+deb8u2_amd64.deb && \
+    wget http://ftp.de.debian.org/debian/pool/main/p/pango1.0/libpangocairo-1.0-0_1.36.8-3_amd64.deb && \
+    dpkg -i *.deb
 WORKDIR /athenapdf/
 
 ENV PATH /athenapdf/:$PATH
